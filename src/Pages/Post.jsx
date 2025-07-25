@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Link, useNavigate, useParams } from 'react-router'
 import appwriteService from '../Appwrite/config'
-import { Container, Button} from '../components'
+import { Container, Button } from '../components'
 import parse from 'html-react-parser'
 
 const Post = () => {
@@ -48,30 +48,33 @@ const Post = () => {
     return posts ? (
         <div className='py-8'>
             <Container>
-                <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2">
-                    <img src={appwriteService.getPreview(posts.featuredImage)} alt={posts.title} className='rounded-xl' />
-                    {isAuthor && (  //is componoent ko ya to post ke begining mein rakho ya to end mein
-                        <div className='absolute right-6 top-6'>
-                            <Link to={`/edit-post/${posts.$id}`}>
-                                <Button bgColor="bg-green-500" className="mr-3">
-                                    Edit
+                <div className='bg-white p-10 rounded-2xl'>
+                    <div className="w-full flex justify-center mb-4 relative  rounded-xl p-2">
+                        <img src={appwriteService.getPreview(posts.featuredImage)} alt={posts.title} className='rounded-xl' />
+                        {isAuthor && (  //is componoent ko ya to post ke begining mein rakho ya to end mein
+                            <div className='absolute right-6 top-6'>
+                                <Link to={`/edit-post/${posts.$id}`}>
+                                    <Button bgColor="bg-green-500" className="mr-3">
+                                        Edit
+                                    </Button>
+                                </Link>
+                                <Button bgColor="bg-red-500" onClick={deletePost}>
+                                    Delete
                                 </Button>
-                            </Link>
-                            <Button bgColor="bg-red-500" onClick={deletePost}>
-                                Delete
-                            </Button>
-                        </div>
-                    )}
-                </div>
-                <div className="w-full mb-6">
-                    <h1 className="text-2xl font-bold">{posts.title}</h1>
-                </div>
-                <div className="browser-css">
-                    {
-                        parse(posts.content) //as this content is provided by tinymce which outputs contents as HTML string
-                        //React, by default, treats strings as plain text to prevent XSS attacks, parse(post.content) tells
-                        //React: "Take this HTML string, parse it, and render it as actual HTML elements
-                    }
+                            </div>
+                        )}
+                    </div>
+                    <div className="w-full mb-6">
+                        <h1 className="text-3xl font-bold">{posts.title}</h1>
+                    </div>
+                    <div className="browser-css">
+                        {
+                            parse(posts.content) //as this content is provided by tinymce which outputs contents as HTML string
+                            //React, by default, treats strings as plain text to prevent XSS attacks, parse(post.content) tells
+                            //React: "Take this HTML string, parse it, and render it as actual HTML elements
+                        }
+                    </div>
+
                 </div>
             </Container>
         </div>
