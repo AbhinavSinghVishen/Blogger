@@ -4,38 +4,38 @@ import { Container, PostCard } from '../components'
 
 const Home = () => {
     const [posts, setPosts] = useState([])
-    
+
     useEffect(() => {
-        const fetchPosts = async() => {
+        const fetchPosts = async () => {
             try {
                 const fetchedPosts = await appwriteService.getPosts()//only active posts should be fetched
-                if(fetchedPosts){
+                if (fetchedPosts) {
                     setPosts(fetchedPosts.documents)
                 }
             } catch (error) {
                 console.log("Error in fetching active posts ", error)
             }
         }
-        
+
         fetchPosts()
     }, [])
 
-    if(posts.length === 0){
+    if (posts.length === 0) {
         return (
             <div className="w-full py-8 mt-4 text-center">
-                <Container>
-                    <div className="flex flex-wrap">
-                        <div className="p-2 w-full">
-                            <h1 className="text-2xl font-bold hover:text-gray-500">
-                                No Posts Found!
-                            </h1>
-                        </div>
+            <Container>
+                <div className="flex flex-wrap">
+                    <div className="p-2 w-full h-[65vh] flex justify-center items-center border rounded-2xl">
+                        <h1 className="text-2xl font-bold hover:text-gray-500">
+                            No Posts Found!
+                        </h1>
                     </div>
-                </Container>
-            </div>
+                </div>
+            </Container>
+        </div>
         )
     }
-  return (
+    return (
         <div className='w-full py-8'>
             <Container>
                 <div className='flex flex-wrap'>
