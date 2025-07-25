@@ -104,7 +104,7 @@ const PostForm = ({post}) => {
                 <Input
                     label="Featured Image :"
                     type="file"
-                    className="mb-4 file:mr-4 file:rounded-full file:border-0 file:bg-blue-600 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white hover:file:bg-blue-700 dark:file:bg-violet-600 dark:file:text-violet-100 dark:hover:file:bg-violet-500"
+                    className="mb-4 file:mr-4 file:rounded-full file:border-0 file:bg-blue-600 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white hover:file:bg-blue-700"
                     accept="image/png, image/jpg, image/jpeg, image/gif"
                     {...register("image", { required: !post })}
                 />
@@ -123,7 +123,7 @@ const PostForm = ({post}) => {
                     className="mb-4"
                     {...register("status", { required: true })}
                 />
-                <Button type="submit" bgColor={post ? "bg-green-500" : undefined} className={`w-full hover:bg-blue-700
+                <Button type="submit" bgColor={post ? "bg-green-500" : undefined} className={`w-full ${post ? "hover:bg-green-600" : "hover:bg-blue-700"}
                     ${Object.keys(errors).length ? 'cursor-not-allowed': 'cursor-pointer'}`
                 }>
                     {post ? "Update" : "Submit"}

@@ -48,7 +48,7 @@ const Post = () => {
     return posts ? (
         <div className='py-8'>
             <Container>
-                <div className='bg-white p-10 rounded-2xl'>
+                <div className='bg-white dark:bg-gray-900 p-10 rounded-2xl'>
                     <div className="w-full flex justify-center mb-4 relative  rounded-xl p-2">
                         <img src={appwriteService.getPreview(posts.featuredImage)} alt={posts.title} className='rounded-xl' />
                         {isAuthor && (  //is componoent ko ya to post ke begining mein rakho ya to end mein
@@ -65,9 +65,9 @@ const Post = () => {
                         )}
                     </div>
                     <div className="w-full mb-6">
-                        <h1 className="text-3xl font-bold">{posts.title}</h1>
+                        <h1 className="text-3xl font-bold text-black dark:text-gray-100">{posts.title}</h1>
                     </div>
-                    <div className="browser-css">
+                    <div className="browser-css dark:text-gray-100">
                         {
                             parse(posts.content) //as this content is provided by tinymce which outputs contents as HTML string
                             //React, by default, treats strings as plain text to prevent XSS attacks, parse(post.content) tells

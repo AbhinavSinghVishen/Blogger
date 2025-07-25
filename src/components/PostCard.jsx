@@ -5,11 +5,11 @@ import { Link } from 'react-router'
 const PostCard = ({$id, title, featuredImage}) => {
   return (
     <Link to={`/post/${$id}`}>
-      <div className='w-full bg-gray-100 rounded-xl p-4'>
+      <div className='w-full bg-gray-100 rounded-xl p-4 dark:bg-gray-900'>
         <div className='w-full justify-center mb-4'>
             <img src={appwriteService.getPreview(featuredImage)} alt={title} className='rounded-xl w-full h-60'/>
         </div>
-        <h2 className='text-xl font-bold'>
+        <h2 className='text-xl font-bold dark:text-white'>
             {title}
         </h2>
       </div>
