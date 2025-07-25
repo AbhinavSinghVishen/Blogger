@@ -17,7 +17,6 @@ function App() {
       .then((userdata) => {
         if (userdata) {
           dispatch(logIn({ userData: userdata }));  //in store there userData is there not userdata
-          console.log(userdata)
         } else {
           dispatch(logOut());
           //if userdata is notfound(null) then we will update the state(for
