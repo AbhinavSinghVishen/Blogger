@@ -43,7 +43,7 @@ function App() {
   return (
     <>
       <ThemeModeContextProvider value={{theme, toggleTheme}}>
-        <div className="min-h-screen flex flex-wrap content-between bg-gray-400 dark:bg-gray-600">
+        <div className="min-h-screen flex flex-wrap content-between bg-gray-100 dark:bg-gray-600">
           {/* <h1 className="text-black border">A Blog App with Appwrite </h1> */}
           <div className="w-full block">
             <Header />
