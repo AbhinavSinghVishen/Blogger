@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { PostCard, Container } from '../components'
+import { PostCard, Container, Loader } from '../components'
 import appwriteService from '../Appwrite/config'
 
 const AllPosts = () => {
@@ -27,17 +27,7 @@ const AllPosts = () => {
 
     if (posts.length === 0) {
         return (
-            <div className="w-full py-8 mt-4 text-center">
-                <Container>
-                    <div className="flex flex-wrap">
-                        <div className="p-2 w-full h-[65vh] flex justify-center items-center border rounded-2xl">
-                            <h1 className="text-2xl font-bold hover:text-gray-500">
-                                {loader ? "Loading..." : "No Posts Found!" }
-                            </h1>
-                        </div>
-                    </div>
-                </Container>
-            </div>
+            <Loader status={Loader ? "Loading..." : "No Posts Found!"}/>
         )
     }
     return (

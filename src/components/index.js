@@ -12,6 +12,7 @@ import SignUp from "./SignUp.jsx";
 import Login from './Login.jsx'
 import Select from "./Select.jsx";
 import PostForm from "./PostForm/PostForm";
+import Loader from "./Loader.jsx";
 
 export {
     Header,
@@ -28,4 +29,5 @@ export {
     Login,
     Select,
     PostForm,
+    Loader,
 }
