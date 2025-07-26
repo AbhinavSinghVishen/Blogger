@@ -4,6 +4,7 @@ import { Container, PostCard } from '../components'
 
 const Home = () => {
     const [posts, setPosts] = useState([])
+    const [loader, setLoader] = useState(true)
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -14,9 +15,11 @@ const Home = () => {
                 }
             } catch (error) {
                 console.log("Error in fetching active posts ", error)
+            } finally{
+                setLoader(false)
             }
         }
-
+        setLoader(true)
         fetchPosts()
     }, [])
 
@@ -27,7 +30,7 @@ const Home = () => {
                     <div className="flex flex-wrap">
                         <div className="p-2 w-full h-[65vh] flex justify-center items-center border rounded-2xl">
                             <h1 className="text-2xl font-bold hover:text-gray-500">
-                                No Posts Found!
+                                {loader ? "Loading..." : "No Posts Found!" }
                             </h1>
                         </div>
                     </div>
